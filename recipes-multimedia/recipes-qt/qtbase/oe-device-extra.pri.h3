@@ -1,0 +1,9 @@
+QMAKE_LIBS_EGL += -lEGL -ldl -lglib-2.0 -lpthread
+QMAKE_LIBS_OPENGL_ES2 += -lGLESv2 -lgsl -lEGL -ldl -lglib-2.0 -lpthread
+
+QMAKE_CFLAGS += -DLINUX=1 -DWL_EGL_PLATFORM -marm -march=armv7-a -mtune=cortex-a7 -mfpu=neon-vfpv4
+QMAKE_CXXFLAGS += -DLINUX=1 -DWL_EGL_PLATFORM -marm -march=armv7-a -mtune=cortex-a7 -mfpu=neon-vfpv4
+
+QT_QPA_DEFAULT_PLATFORM = eglfs
+
+EGLFS_DEVICE_INTEGRATION = eglfs_kms
