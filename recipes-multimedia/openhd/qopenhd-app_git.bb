@@ -10,14 +10,14 @@ inherit systemd pkgconfig qmake5
 SYSTEMD_AUTO_ENABLE = "enable"
 SYSTEMD_SERVICE:${PN} = "qopenhd.service"
 
-SRC_URI = "gitsm://github.com/OpenHD/QOpenHD.git;protocol=https;branch=dev-release \
+SRC_URI = "gitsm://github.com/OpenHD/QOpenHD.git;protocol=https;branch=consti-dev \
            file://0001-add-platform.patch \
            file://0002-constants.patch \
            file://0003-array.patch \
            file://qopenhd.sh \
            file://qopenhd.service \
            "
-SRCREV = "edf9118d5c48fbf6470158145551ddeaabc33a30"
+SRCREV = "d52043443d817eeff788c0a4255758cc547d599e"
 S = "${WORKDIR}/git"
 
 DEPENDS = "\
@@ -30,6 +30,7 @@ DEPENDS = "\
     qtdeclarative-native \
     qtlocation \
     qtspeech \
+    qtcharts \
     gstreamer1.0 \
     gstreamer1.0-plugins-base \
     gstreamer1.0-plugins-good \
@@ -38,6 +39,7 @@ DEPENDS = "\
     gstreamer1.0-libav \
     gstreamer1.0-omx \
     gstreamer1.0-meta-base \
+    gstreamer1.0-vaapi \
     " 
 
 DEPENDS:rpi += " userland"
@@ -47,6 +49,7 @@ RDEPENDS:${PN} += "\
     qtdeclarative \
     qtlocation \
     qtspeech \
+    qtcharts \
     qtquickcontrols \
     qtquickcontrols-mkspecs  \
     qtquickcontrols2 \
@@ -60,6 +63,7 @@ RDEPENDS:${PN} += "\
     gstreamer1.0-libav \
     gstreamer1.0-omx \
     gstreamer1.0-meta-base \
+    gstreamer1.0-vaapi \
 "
 
 RDEPENDS:${PN}:rpi += " userland"
